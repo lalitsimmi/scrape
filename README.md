@@ -1,1 +1,3 @@
-# scrape
+Users can scrape for 20 recent articles from The newyork times, and save favorites for later viewing. Notes can be added and deleted for saved articles. Articles can be cleared from the saved section and all Articles and Notes can be wiped from the database for a clean slate.
+
+This app uses Axios and Cheerio to scrape for data on the web. Article and Note models are handled by Mongoose and the the routes for connecting to the Mongo database are handled with Express.

@@ -11,7 +11,8 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3001;
+//var PORT = 3001;
+var PORT =  process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -27,7 +28,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/classroom", { useNewUrlParser: true });
 
 // Routes
 
@@ -38,6 +39,8 @@ app.get("/scrape", function(req, res) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
+    console.log(response.data);
+    console.log($);
     // Now, we grab every h2 within an article tag, and do the following:
     $("article h2").each(function(i, element) {
       // Save an empty result object
